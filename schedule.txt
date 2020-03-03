@@ -1,0 +1,16 @@
+1) Put everything in 1 notebook file.
+
+2) Reproduce the work
+
+3) V1: distribute data in uneven manner and no weight contributions of clients
+4) V2: distribute data in uneven manner and add weighted contributions for clients
+5) V3: add some noise to weight updates before sending back
+
+
+Schedule:
+Week 5 (09/03):
+Week 6 (16/03):
+Week 7 (23/03):
+Week 8 (30/03):
+Week 9 (06/04): Poster preparation
+Week 10 (13/04: Poster presentation
