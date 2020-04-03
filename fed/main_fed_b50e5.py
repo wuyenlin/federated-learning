@@ -64,7 +64,7 @@ if __name__ == '__main__':
         acc_test = None
         loss_test = None
 
-        for communicate in range(1,501):    
+        for communicate in range(1,101):    
             # print("i= {}".format(i))
             # print('Round %d' % communicate)
 
