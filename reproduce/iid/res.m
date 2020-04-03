@@ -1,10 +1,10 @@
 %%
 clear all;
 
-%%
+%% plotting paper fig 2-1 (iid)
 b_idx = [10,50,600];
 e_idx = [1, 5];
-%e = [1, 5, 200];
+%e_idx = [1, 5, 200];
 
 figure(87);
 
@@ -40,13 +40,13 @@ end
 xlabel('Communication Rounds');
 ylabel('Test Accuracy (%)');
 title('MNIST CNN IID');
-%legend({'','B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
+%legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
 %legend('boxoff');
 
-%% plot non-iid
+%% plotting paper fig 2-2 (non-iid)
 b_idx = [10,50,600];
 e_idx = [1, 5];
-%e = [1, 5, 200];
+%e_idx = [1, 5, 200];
 
 figure(88);
 
@@ -82,7 +82,7 @@ end
 xlabel('Communication Rounds');
 ylabel('Test Accuracy (%)');
 title('MNIST CNN IID');
-%legend({'','B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
+%legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
 %legend('boxoff');
 
 %% plot result
