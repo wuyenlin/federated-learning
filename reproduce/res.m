@@ -38,10 +38,10 @@ end
 
 xlabel('Communication Rounds');
 ylabel('Test Accuracy (%)');
-title('MNIST CNN IID');
+title('MNIST CNN IID (paper reproduction)');
 legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
 legend('boxoff');
-axis([0 1000 90 100]);
+axis([0 1000 80 100]);
 
 
 %% plotting paper fig 2-2 (non-iid)
@@ -82,7 +82,7 @@ end
 
 xlabel('Communication Rounds');
 ylabel('Test Accuracy (%)');
-title('MNIST CNN IID');
+title('MNIST CNN non-IID (paper reproduction)');
 %legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
 %legend('boxoff');
 
@@ -124,7 +124,7 @@ end
 
 xlabel('Communication Rounds');
 ylabel('Test Accuracy (%)');
-title('MNIST CNN IID');
+title('MNIST CNN IID (uneven data distribution)');
 legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
 legend('boxoff');
 axis([0 1000 90 100]);
