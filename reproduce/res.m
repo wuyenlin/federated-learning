@@ -1,3 +1,8 @@
+%%
+% reading tab:
+% b10e1     b50e1   b600e1 
+% b10e5     b50e5   b600e5
+% b10e20    b50e20  b600e20
 %% plotting paper fig 2-1 (iid)
 clear all;
 b_idx = [10,50,600];
