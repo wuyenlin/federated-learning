@@ -109,6 +109,7 @@ ylabel('Test Accuracy (%)');
 title('MNIST CNN non-IID (paper reproduction)');
 legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
 legend('boxoff');
+axis([0 1000 80 100]);
 
 %% plot uneven data distribution result
 %clear all;
