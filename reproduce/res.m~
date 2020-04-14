@@ -223,6 +223,26 @@ legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20'},'Lo
 legend('boxoff');
 axis([0 1000 80 100]);
 
-%% plot
+%% plot Stefan
 
-b10e1
+clear all;
+load('stefan.mat');
+figure(51);
+
+t = 1:1000;
+plot(t, repelem(b10e1,10),'-','color', [.85 0 0], 'LineWidth', 1.5);
+
+hold on;
+plot(t, repelem(b10e5,10),'-.','color', [.85 0 0], 'LineWidth', 1.5);
+plot(t, repelem(b10e20,10),'--','color', [.85 0 0], 'LineWidth', 1.5);
+plot(t, repelem(b50e1,10),'-','color', [.9 .7 0], 'LineWidth', 1.5);
+plot(t, repelem(b50e5,10),'-.','color', [.9 .7 0], 'LineWidth', 1.5);
+plot(t, repelem(b50e20,10),'--','color', [.9 .7 0], 'LineWidth', 1.5);
+hold off;
+
+xlabel('Communication Rounds');
+ylabel('Test Accuracy (%)');
+title('MNIST CNN non-IID (uneven data distribution)');
+legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20'},'Location','southeast');
+legend('boxoff');
+axis([0 1000 80 100]);
