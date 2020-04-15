@@ -161,7 +161,7 @@ tab_ud = reshape(tab_ud, 3,3)
 
 xlabel('Communication Rounds');
 ylabel('Test Accuracy (%)');
-title('MNIST CNN IID (uneven data distribution)');
+title('MNIST CNN IID (uneven D.D) w/o weight distribution from clients');
 legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
 legend('boxoff');
 axis([0 1000 80 100]);
@@ -223,7 +223,7 @@ tab_st = reshape(tab_ud, 3,3)
 
 xlabel('Communication Rounds');
 ylabel('Test Accuracy (%)');
-title('MNIST CNN non-IID (uneven data distribution)');
+title('MNIST CNN IID (uneven D.D.) w/ weight distribution from clients');
 legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20'},'Location','southeast');
 legend('boxoff');
 axis([0 1000 80 100]);
