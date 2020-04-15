@@ -227,24 +227,3 @@ title('MNIST CNN non-IID (uneven data distribution)');
 legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20'},'Location','southeast');
 legend('boxoff');
 axis([0 1000 80 100]);
-
-
-%% test
-clear all;
-filename = 'stefan_results/st_b50e1.txt';
-fileID = fopen(filename,'r');
-data = fscanf(fileID,'%f');
-
-
-for i = 15:99
-    if abs(data(i+1)-data(i)) > 1.5
-        data(i+1) = data(i);
-    end
-end
-
-data = repelem(data,10);
-
-
-t = 1:1000;
-figure(87);
-plot(t,data);
