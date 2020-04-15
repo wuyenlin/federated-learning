@@ -156,7 +156,7 @@ for b = b_idx
         end
     end
 end
-plot([0,100],[0.99, 0.99], 'Color', [17 17 17]./255);
+plot([0,1000],[0.99, 0.99], 'Color', [.7 .7 .7]);
 
 tab_ud = reshape(tab_ud, 3,3)
 
