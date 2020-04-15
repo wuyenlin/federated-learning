@@ -135,7 +135,7 @@ for b = b_idx
         filename = ['uneven_mnist_cnn_iid/ud_b',num2str(b),'e',num2str(e),'.txt'];
         fileID = fopen(filename,'r');
         data = fscanf(fileID,'%f');
-        data = repelem(data,10);
+        data = repelem(data,10)./100;
         
         % find first number >= 0.99 accuracy
         if isempty(find(data>=99, 1))
@@ -155,7 +155,8 @@ for b = b_idx
             plot(t, data, '--', 'Color', color, 'LineWidth', 1.5);
         end
     end
-end    
+end
+plot([0,100],[0.99, 0.99], 'Color', [17 17 17]./255);
 
 tab_ud = reshape(tab_ud, 3,3)
 
@@ -164,7 +165,7 @@ ylabel('Test Accuracy (%)');
 title('MNIST CNN IID (uneven D.D) w/o weight distribution from clients');
 legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
 legend('boxoff');
-axis([0 1000 80 100]);
+axis([0 1000 0.8 1]);
 
 
 %% Plot Stefan
@@ -193,7 +194,7 @@ for b = b_idx
         filename = ['stefan_results/st_b',num2str(b),'e',num2str(e),'.txt'];
         fileID = fopen(filename,'r');
         data = fscanf(fileID,'%f');
-        data = repelem(data,10);
+        data = repelem(data,10)./100;
         
         % apply Savitzky-Golay filtering
         data = sgolayfilt(data,1,81);
@@ -218,6 +219,7 @@ for b = b_idx
         end
     end
 end    
+plot([0,100],[0.99, 0.99], 'Color', [17 17 17]./255);
 
 tab_st = reshape(tab_ud, 3,3)
 
@@ -226,4 +228,4 @@ ylabel('Test Accuracy (%)');
 title('MNIST CNN IID (uneven D.D.) w/ weight distribution from clients');
 legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20'},'Location','southeast');
 legend('boxoff');
-axis([0 1000 80 100]);
+axis([0 1000 0.8 1]);
