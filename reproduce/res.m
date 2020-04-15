@@ -10,7 +10,7 @@ e_idx = [1, 5, 20];
 
 figure(87);
 
-tab_iid = zeros(1,9);
+tab_iid = NaN(1,9);
 t = 1:1000;
 i = 1;
 for b = b_idx
@@ -64,7 +64,7 @@ e_idx = [1, 5, 20];
 
 figure(88);
 
-tab_non = zeros(1,9);
+tab_non = NaN(1,9);
 t = 1:1000;
 i = 1;
 for b = b_idx
@@ -118,7 +118,7 @@ e_idx = [1, 5, 20];
 
 figure(50);
 
-tab_ud = zeros(1,9);
+tab_ud = NaN(1,9);
 t = 1:1000;
 i = 1;
 
@@ -176,7 +176,7 @@ e_idx = [1, 5, 20];
 
 figure(51);
 
-tab_ud = zeros(1,9);
+tab_ud = NaN(1,9);
 t = 1:1000;
 i = 1;
 
