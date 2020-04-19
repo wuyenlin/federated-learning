@@ -23,21 +23,21 @@ if __name__ == '__main__':
     args = args_parser()
     args.device = torch.device('cuda:{}'.format(args.gpu) if torch.cuda.is_available() and args.gpu != -1 else 'cpu')
     args.gpu = -1
-    args.iid = True
+    args.iid = False
     args.dataset = 'mnist'
     args.num_channels = 1
     args.model = 'cnn'
     
-    args.epochs = 100
+    args.epochs = 200
 
 
     B = [10,50,600]
-    args.local_ep = 5
+    args.local_ep = 20
 
     for b in B:
         args.local_bs = b
         
-        results_file = open("e5.txt","a")
+        results_file = open("non_iid_e20.txt","a")
         
         # load dataset and split users
         if args.dataset == 'mnist':

@@ -28,7 +28,7 @@ if __name__ == '__main__':
     args.num_channels = 1
     args.model = 'cnn'
     
-    args.epochs = 100
+    args.epochs = 200
 
 
     B = [10,50,600]
@@ -37,7 +37,7 @@ if __name__ == '__main__':
     for b in B:
         args.local_bs = b
         
-        results_file = open("e20.txt","a")
+        results_file = open("iid_e20.txt","a")
         
         # load dataset and split users
         if args.dataset == 'mnist':
