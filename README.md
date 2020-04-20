@@ -17,11 +17,11 @@ With increasing use of mobile devices, the data stored on them can be used to im
 In this project, we investigate this learning technique proposed by Google. It is termed *Federated Learning*, since the learning task is solved by a loose federation of participating devices (*clients*) coordinated by a central *server* -- [H.Brendan McMahan et al](https://arxiv.org/pdf/1602.05629). 
 How the algorithm works is as follows: a central server shares its model weights with clients. Each client computes its own update on local training data and uploads it to the server that maintains the global model. The local training data set is never uploaded; instead, only the update is communicated for the global model. More formally, every client (k) trains on local data with SGD with a batch size B to obtain a gradient estimate g<sub>k</sub>, with learning rate &eta;.
 
-![](http://www.sciweavers.org/upload/Tex2Img_1587368593/render.png)
+![](https://i.imgur.com/zMzMSi3.png)
 
 After E epochs, the updated weights w<sup>k</sup> are sent to the server. The server then combines the weights of the clients to obtain a new model w<sub>t+1</sub>. This is done by assigning a higher weight to clients with a larger fraction of data n<sub>k</sub> / K.
 
-![](http://www.sciweavers.org/upload/Tex2Img_1587368470/render.png)
+![](https://i.imgur.com/T2HA62N.png)
 
 This model is then re-distributed back to the clients for further training. The above explanation is visualized in the figure below.
 
