@@ -17,11 +17,6 @@ from models.Nets import MLP, CNNMnist, CNNCifar
 from models.Fed import FedAvg
 from models.test import test_img
 
-#def scale(x, out_range=(-1, 1)):
-#    domain = np.min(x), np.max(x)
-#    y = (x - (domain[1] + domain[0]) / 2) / (domain[1] - domain[0])
-#    return y * (out_range[1] - out_range[0]) + (out_range[1] + out_range[0]) / 2
-
 if __name__ == '__main__':
     # parse args
     args = args_parser()
