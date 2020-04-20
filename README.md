@@ -15,7 +15,7 @@ This project is done by group 18 -- Stefan Hofman, Mirza Mrahorovic, and Yen-Lin
 With increasing use of mobile devices, the data stored on them can be used to improve, for example, language models, voice recognition, and text entry. Federated Learning allows users to collectively reap the benefits of shared models trained from such data without the need to centrally store it. However, such data are privacy sensitive in nature.
 
 In this project, we investigate this learning technique proposed by Google. It is termed *Federated Learning*, since the learning task is solved by a loose federation of participating devices (*clients*) coordinated by a central *server* -- [H.Brendan McMahan et al](https://arxiv.org/pdf/1602.05629). 
-How the algorithm works is as follows. A central server shares its model weights with clients. Each client computes its own update on local training data and uploads it to the server that maintains the global model. The local training data set is never uploaded; instead, only the update is communicated for the global model. More formally, every client (k) trains on local data with SGD with a batch size B to obtain a gradient estimate g<sub>k</sub>.
+How the algorithm works is as follows: a central server shares its model weights with clients. Each client computes its own update on local training data and uploads it to the server that maintains the global model. The local training data set is never uploaded; instead, only the update is communicated for the global model. More formally, every client (k) trains on local data with SGD with a batch size B to obtain a gradient estimate g<sub>k</sub>, with learning rate &eta;.
 
 ![](http://www.sciweavers.org/upload/Tex2Img_1587368593/render.png)
 
@@ -27,14 +27,15 @@ This model is then re-distributed back to the clients for further training. The 
 
 ![](https://i.imgur.com/W25lGiw.jpg)
 
+
 Several questions arise here:
 1. What happens to the convergence rate if the data is distributed in an uneven manner among users?
 2. Would a simple weighted averaging of the models lead to faster convergence if the data is distributed in an uneven manner?
 3. How much noise can the weight updates tolerate and what are the implications for data privacy?
 
-In order to answer these questions, we adjusted the algorithm called *FederatedAveraging* that is introduced in the original paper. A series of 3 experiments are carried out to demonstrate its robustness to unbalanced and non-IID data distributions, as well as the ability to reduce the rounds of communication needed to train a deep network on decentralized data by orders of magnitude.
+In order to answer these questions, we adjusted the algorithm called *FederatedAveraging* that is introduced in the original paper. A series of 3 experiments are carried out to demonstrate its robustness to unbalanced and IID data distributions, as well as the ability to reduce the rounds of communication needed to train a deep network on decentralized data by orders of magnitude.
 
-We start by replicating the results of the paper given the existing code in [GitHub](https://github.com/shaoxiongji/federated-learning). These results are presented in *Replication*. Next, we will present and discuss the results of the three questions presented above in Section *Uneven Distribution*, *Weighted Uneven Distribution* and *Noise robustness*. 
+We start by replicating the results of the paper given the existing code in [GitHub](https://github.com/shaoxiongji/federated-learning). These results are presented in *Replication* on HackMD. Next, we will present and discuss the results of the 3 questions presented above in Section *Uneven Distribution*, *Weighted Uneven Distribution* and *Noise robustness*. 
 
 
 ## References
