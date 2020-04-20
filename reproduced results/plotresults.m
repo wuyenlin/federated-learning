@@ -57,7 +57,7 @@ ylabel('Test Accuracy');
 title('MNIST CNN IID (paper reproduction)');
 legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
 legend('boxoff');
-axis([0 200 0.80 1]);
+%axis([0 200 0.80 1]);
 
 
 %% plotting paper fig 2-2 (non-iid)
@@ -115,9 +115,9 @@ tab_non = reshape(tab_non, 3, 3)
 xlabel('Communication Rounds');
 ylabel('Test Accuracy');
 title('MNIST CNN non-IID (paper reproduction)');
-%legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
-%legend('boxoff');
-axis([0 200 0.80 1]);
+legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
+legend('boxoff');
+%axis([0 200 0.80 1]);
 
 %% plot uneven data distribution result
 clear all;
@@ -147,7 +147,7 @@ for b = b_idx
         data = fscanf(fileID,'%f');
         data = data./100;
         
-        data = sgolayfilt(data,1,15);
+        %data = sgolayfilt(data,1,15);
         
         % find first number >= 0.99 accuracy
         if isempty(find(data>=0.99, 1))
@@ -177,20 +177,20 @@ ylabel('Test Accuracy');
 title('MNIST CNN IID (uneven D.D) w/o weight distribution from clients');
 legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
 legend('boxoff');
-axis([0 100 0.80 1]);
+%axis([0 100 0.80 1]);
 
 
 %% Plot Stefan
 
 clear all;
 close all;
-b_idx = [10, 50];
+b_idx = [10, 50, 600];
 e_idx = [1, 5, 20];
 
 figure(51);
 
-tab_ud = NaN(1,9);
-t = 1:1000;
+tab_sh = NaN(1,9);
+t = 1:100;
 i = 1;
 
 for b = b_idx
@@ -203,20 +203,20 @@ for b = b_idx
     end
     
     for e = e_idx
-        filename = ['stefan_results/st_b',num2str(b),'e',num2str(e),'.txt'];
+        filename = ['uneven_with_weight/sh_b',num2str(b),'e',num2str(e),'.txt'];
         fileID = fopen(filename,'r');
         data = fscanf(fileID,'%f');
-        data = repelem(data,10);
+        data = data./100;
         
         % apply Savitzky-Golay filtering
-        data = sgolayfilt(data,1,81);
+        %data = sgolayfilt(data,1,81);
         
         
         % find first number >= 0.99 accuracy
-        if isempty(find(data>=99, 1))
+        if isempty(find(data>=0.99, 1))
             tab_ud(i) = NaN;
         else
-            tab_ud(i) = find(data>=99, 1);
+            tab_ud(i) = find(data>=0.99, 1);
         end
         i = i + 1;
         
@@ -231,13 +231,13 @@ for b = b_idx
         end
     end
 end    
-plot([0,1000],[99,99], 'Color', [.7 .7 .7]);
+plot([0,100], [0.99,0.99], 'Color', [.7 .7 .7]);
 
-tab_st = reshape(tab_ud, 3,3)
+tab_sh = reshape(tab_sh, 3, 3)
 
 xlabel('Communication Rounds');
-ylabel('Test Accuracy (%)');
+ylabel('Test Accuracy');
 title('MNIST CNN IID (uneven D.D.) w/ weight distribution from clients');
-legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20'},'Location','southeast');
+legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
 legend('boxoff');
-axis([0 1000 80 100]);
+%axis([0 100 0.80 1]);
