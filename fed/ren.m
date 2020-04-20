@@ -11,12 +11,12 @@ data = fscanf(fileID,'%f');
 
 name1 = ['iid_b10e',num2str(e),'.txt'];
 %name1 = ['non_iid_b10e',num2str(e),'.txt'];
-dlmwrite(name1,data(1:200));
+dlmwrite(name1,data(1:500));
 
 name2 = ['iid_b50e',num2str(e),'.txt'];
 %name2 = ['non_iid_b50e',num2str(e),'.txt'];
-dlmwrite(name2,data(501:700));
+dlmwrite(name2,data(501:1000));
 
 name3 = ['iid_b600e',num2str(e),'.txt'];
 %name3 = ['non_iid_b600e',num2str(e),'.txt'];
-dlmwrite(name3,data(1001:1200));
+dlmwrite(name3,data(1001:1500));
