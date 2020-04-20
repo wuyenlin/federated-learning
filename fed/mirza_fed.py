@@ -28,11 +28,12 @@ if __name__ == '__main__':
     args.num_channels = 1
     args.model = 'cnn'
     
+    # set communication round
     args.epochs = 500
 
-
-    B = [10,50,600]
+    # set local epochs
     args.local_ep = 1
+    B = [10,50,600]
 
     for b in B:
         args.local_bs = b
