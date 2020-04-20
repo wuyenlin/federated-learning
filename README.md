@@ -1,4 +1,3 @@
-
 # Reproducing: Communication-Efficient Learning of Deep Networks from Decentralized Data
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1sWdbt_a3Dya9TQKTB2k5p-kRJWiznGsb)
@@ -31,7 +30,7 @@ Several questions arise here:
 
 In order to answer these questions, we adjusted the algorithm called *FederatedAveraging* that is introduced in the original paper. A series of 3 experiments are carried out to demonstrate its robustness to unbalanced and non-IID data distributions, as well as the ability to reduce the rounds of communication needed to train a deep network on decentralized data by orders of magnitude.
 
-We start by replicating the results of the paper given the existing code in <cite>[GitHub][2]</cite>. These results are presented in *Replication*. Next, we will present and discuss the results of the three questions presented above in Section *Uneven Distribution*, *Weighted Uneven Distribution* and *Noise robustness*. 
+We start by replicating the results of the paper given the existing code in [GitHub](https://github.com/shaoxiongji/federated-learning). These results are presented in *Replication*. Next, we will present and discuss the results of the three questions presented above in Section *Uneven Distribution*, *Weighted Uneven Distribution* and *Noise robustness*. 
 
 
 ## References
