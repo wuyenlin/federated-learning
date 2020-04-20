@@ -6,7 +6,7 @@
 In 2017, H. Brendan McMahan, et al. published Communication-Efficient Learning of Deep Networks from Decentralized Data. The paper describes the principle of Federated Learning and demonstrates a practical method of deep networks based on interative model averaging. 
 
 
-This project is done by group 18 -- Stefan Hofman, Mirza Mrahorovic, and Yen-Lin Wu, as a part of TU Delft's CS4240 Deep Learning course. We reproduced the paper results, as well as randomized the data distribution before weight updates and added noise to weights before communication with clients. 
+This project is done by group 18 -- Stefan Hofman, Mirza Mrahorovi&cacute;, and Yen-Lin Wu, as a part of TU Delft's CS4240 Deep Learning course. We reproduced the paper results, as well as randomized the data distribution before weight updates and added noise to weights before communication with clients. 
 
 
 

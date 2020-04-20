@@ -22,7 +22,21 @@ if __name__ == '__main__':
     # parse args
     args = args_parser()
     args.device = torch.device('cuda:{}'.format(args.gpu) if torch.cuda.is_available() and args.gpu != -1 else 'cpu')
+    args.gpu = -1 # <- -1 of no GPU is available
+    
+    args.dataset = 'mnist'
+    args.num_channels = 1
+    args.model = 'cnn'
+    
+    # set communication round
+    args.epochs = 100
 
+    args.iid = True                     # <- needs to be changed
+    args.local_ep = 20                  # <- needs to be changed
+    args.local_bs = 10                  # <- needs to be changed
+        
+    results_file = open("output.txt","a")   # <- needs to be changed
+    
     # load dataset and split users
     if args.dataset == 'mnist':
         trans_mnist = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])
@@ -54,7 +68,7 @@ if __name__ == '__main__':
         len_in = 1
         for x in img_size:
             len_in *= x
-        net_glob = MLP(dim_in=len_in, dim_hidden=64, dim_out=args.num_classes).to(args.device)
+        net_glob = MLP(dim_in=len_in, dim_hidden=200, dim_out=args.num_classes).to(args.device)
     else:
         exit('Error: unrecognized model')
     print(net_glob)
@@ -70,7 +84,8 @@ if __name__ == '__main__':
     net_best = None
     best_loss = None
     val_acc_list, net_list = [], []
-
+    
+    
     for iter in range(args.epochs):
         w_locals, loss_locals = [], []
         m = max(int(args.frac * args.num_users), 1)
@@ -78,6 +93,7 @@ if __name__ == '__main__':
         for idx in idxs_users:
             local = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
             w, loss = local.train(net=copy.deepcopy(net_glob).to(args.device))
+        
             w_locals.append(copy.deepcopy(w))
             loss_locals.append(copy.deepcopy(loss))
         # update global weights
@@ -88,14 +104,15 @@ if __name__ == '__main__':
 
         # print loss
         loss_avg = sum(loss_locals) / len(loss_locals)
-        print('Round {:3d}, Average loss {:.3f}'.format(iter, loss_avg))
+        #print('Round {:3d}, Average loss {:.3f}'.format(iter, loss_avg))
         loss_train.append(loss_avg)
-
-    # plot loss curve
-    plt.figure()
-    plt.plot(range(len(loss_train)), loss_train)
-    plt.ylabel('train_loss')
-    plt.savefig('fed_{}_{}_{}_C{}_iid{}.png'.format(args.dataset, args.model, args.epochs, args.frac, args.iid))
+        
+        # Evaluate score
+        net_glob.eval()
+        acc_test, loss_test = test_img(net_glob, dataset_test, args)
+        print('Round {:3d}, Accuracy {:.3f}'.format(iter, acc_test))
+        results_file.write("%f \n" %(acc_test))
+    
 
     # testing
     net_glob.eval()
@@ -103,4 +120,5 @@ if __name__ == '__main__':
     acc_test, loss_test = test_img(net_glob, dataset_test, args)
     print("Training accuracy: {:.2f}".format(acc_train))
     print("Testing accuracy: {:.2f}".format(acc_test))
-
+    
+    results_file.close()    
