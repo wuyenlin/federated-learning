@@ -35,7 +35,7 @@ Several questions arise here:
 
 In order to answer these questions, we adjusted the algorithm called *FederatedAveraging* that is introduced in the original paper. A series of 3 experiments are carried out to demonstrate its robustness to unbalanced and IID data distributions, as well as the ability to reduce the rounds of communication needed to train a deep network on decentralized data by orders of magnitude.
 
-We start by replicating the results of the paper given the existing code from  [shaoxiongji](https://github.com/shaoxiongji/federated-learning). These results are presented in *Replication* on HackMD. Next, we will present and discuss the results of the 3 questions presented above in Section *Uneven Distribution*, *Weighted Uneven Distribution* and *Noise robustness*. 
+Full blog post on this reproducibility project is on [Medium](https://medium.com/federated-learning/reproducing-communication-efficient-learning-of-deep-networks-from-decentralized-data-6393ca963f7b). We start by replicating the results of the paper given the existing code from  [shaoxiongji](https://github.com/shaoxiongji/federated-learning). These results are presented in *Replication*. Next, we will present and discuss the results of the 3 questions presented above in Section *Uneven Distribution*, *Weighted Uneven Distribution* and *Noise robustness*. 
 
 
 ## References
