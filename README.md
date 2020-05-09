@@ -45,7 +45,7 @@ When B=10, it takes longer to reproduce the results but outputs better accuracy 
 
 ![](https://i.imgur.com/QlyAnPL.png)
 
-![](https://i.imgur.com/QlyAnPL.png)
+![](https://i.imgur.com/6S1cktC.png)
 
 
 ## References
