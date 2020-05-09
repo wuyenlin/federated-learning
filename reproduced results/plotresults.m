@@ -12,7 +12,7 @@ e_idx = [1, 5, 20];
 figure(87);
 
 tab_iid = NaN(1,9);
-t = 1:200;
+t = 1:1000;
 i = 1;
 for b = b_idx
     if b == 10
@@ -27,7 +27,7 @@ for b = b_idx
         filename = ['iid_paper/iid_b',num2str(b),'e',num2str(e),'.txt'];
         fileID = fopen(filename,'r');
         data = fscanf(fileID,'%f');
-        data = data./100;
+        data = data(1:1000)./100;
         
         % find first number >= 0.99 accuracy
         if isempty(find(data>=0.99, 1))
@@ -49,7 +49,7 @@ for b = b_idx
         end
     end
 end    
-plot([0,200],[0.99, 0.99], 'Color', [.7 .7 .7]);
+plot([0,1000],[0.99, 0.99], 'Color', [.7 .7 .7]);
 tab_iid = reshape(tab_iid, 3, 3)
 
 xlabel('Communication Rounds');
@@ -57,7 +57,7 @@ ylabel('Test Accuracy');
 title('MNIST CNN IID (paper reproduction)');
 legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
 legend('boxoff');
-%axis([0 200 0.80 1]);
+axis([0 1000 0.80 1]);
 
 
 %% plotting paper fig 2-2 (non-iid)
@@ -70,7 +70,7 @@ e_idx = [1, 5, 20];
 figure(88);
 
 tab_non = NaN(1,9);
-t = 1:200;
+t = 1:1000;
 i = 1;
 for b = b_idx
     if b == 10
@@ -82,12 +82,12 @@ for b = b_idx
     end
     
     for e = e_idx
-        filename = ['non_iid_paper/non_iid_b',num2str(b),'e',num2str(e),'.txt'];
+        filename = ['non_iid_paper/non_b',num2str(b),'e',num2str(e),'.txt'];
         fileID = fopen(filename,'r');
         data = fscanf(fileID,'%f');
-        data = data./100;
+        data = data(1:1000)/100;
         
-        data = sgolayfilt(data,1,81);
+        data = sgolayfilt(data,1,31);
         
         % find first number >= 0.99 accuracy
         if isempty(find(data>=0.99, 1))
@@ -109,7 +109,7 @@ for b = b_idx
         end
     end
 end    
-plot([0,200],[0.99,0.99], 'Color', [.7 .7 .7]);
+plot([0,1000],[0.99,0.99], 'Color', [.7 .7 .7]);
 tab_non = reshape(tab_non, 3, 3)
 
 xlabel('Communication Rounds');
@@ -117,7 +117,7 @@ ylabel('Test Accuracy');
 title('MNIST CNN non-IID (paper reproduction)');
 legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
 legend('boxoff');
-%axis([0 200 0.80 1]);
+axis([0 1000 0.8 1]);
 
 %% plot uneven data distribution result
 clear all;
@@ -129,7 +129,7 @@ e_idx = [1, 5, 20];
 figure(50);
 
 tab_ud = NaN(1,9);
-t = 1:100;
+t = 1:1000;
 i = 1;
 
 for b = b_idx
@@ -142,10 +142,10 @@ for b = b_idx
     end
     
     for e = e_idx
-        filename = ['uneven_dd_iid/ud_b',num2str(b),'e',num2str(e),'.txt'];
+        filename = ['uneven_dd_iid/un_b',num2str(b),'e',num2str(e),'.txt'];
         fileID = fopen(filename,'r');
         data = fscanf(fileID,'%f');
-        data = data./100;
+        data = data(1:1000)/100;
         
         %data = sgolayfilt(data,1,15);
         
@@ -168,7 +168,7 @@ for b = b_idx
         end
     end
 end
-plot([0,100], [0.99, 0.99], 'Color', [.7 .7 .7]);
+plot([0,1000], [0.99, 0.99], 'Color', [.7 .7 .7]);
 
 tab_ud = reshape(tab_ud, 3, 3)
 
@@ -177,7 +177,7 @@ ylabel('Test Accuracy');
 title('MNIST CNN IID (uneven D.D) w/o weight distribution from clients');
 legend({'B=10 E=1','B=10 E=5','B=10 E=20','B=50 E=1','B=50 E=5','B=50 E=20','B=\infty E=1','B=\infty E=5','B=\infty E=20'},'Location','southeast');
 legend('boxoff');
-%axis([0 100 0.80 1]);
+axis([0 100 0.80 1]);
 
 
 %% Plot Stefan
