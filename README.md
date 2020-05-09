@@ -38,6 +38,16 @@ In order to answer these questions, we adjusted the algorithm called *FederatedA
 Full blog post on this reproducibility project is on [Medium](https://medium.com/federated-learning/reproducing-communication-efficient-learning-of-deep-networks-from-decentralized-data-6393ca963f7b). We start by replicating the results of the paper given the existing code from  [shaoxiongji](https://github.com/shaoxiongji/federated-learning). These results are presented in *Replication*. Next, we will present and discuss the results of the 3 questions presented above in Section *Uneven Distribution*, *Weighted Uneven Distribution* and *Noise robustness*. 
 
 
+### Update May, 2020
+
+The same reproduction is run on Intel i7-8565U, RAM 16GB, and Nvidia RTX 2060 (with 6GB GDDR6) in May 2020 and yielded the following results. For the paper reproduction, some cases reached an accuracy of 0.99 in the IID case, whereas none reached such accuracy in the non-IID case.
+When B=10, it takes longer to reproduce the results but outputs better accuracy than B= &infin;.
+
+![](https://i.imgur.com/QlyAnPL.png)
+
+![](https://i.imgur.com/QlyAnPL.png)
+
+
 ## References
 ```
 @article{mcmahan2016communication,
