@@ -22,7 +22,7 @@ if __name__ == '__main__':
     # parse args
     args = args_parser()
     args.device = torch.device('cuda:{}'.format(args.gpu) if torch.cuda.is_available() and args.gpu != -1 else 'cpu')
-    args.gpu = -1  # -1 if no GPU is available
+    args.gpu = 0  # -1 if no GPU is available
     
     args.dataset = 'mnist'
     args.num_channels = 1
@@ -30,12 +30,12 @@ if __name__ == '__main__':
     
 
     args.iid = True     # IID or non-IID
-    args.epochs = 200   # communication round
+    args.epochs = 1000   # communication round
     args.local_bs = 10  # local batch size
-    args.local_ep = 20  # local epoch
+    args.local_ep = 1  # local epoch
 
         
-    results_file = open("result.txt","a")
+    results_file = open("b10e1.txt","a")
     
     # load dataset and split users
     if args.dataset == 'mnist':

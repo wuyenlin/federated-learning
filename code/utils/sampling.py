@@ -19,8 +19,8 @@ def mnist_iid(dataset, num_users):
     for i in range(num_users):
         dict_users[i] = set(np.random.choice(
             all_idxs,
-            random.randint(1,num_items),            # uneven data distribution
-            #num_items,                             # paper reproduction
+            #random.randint(1,num_items),            # uneven data distribution
+            num_items,                             # paper reproduction
             replace=False))
             
         all_idxs = list(set(all_idxs) - dict_users[i])
