@@ -35,7 +35,7 @@ if __name__ == '__main__':
     args.local_ep = 1  # local epoch
 
         
-    results_file = open("b10e1.txt","a")
+    results_file = open("results.txt","a")
     
     # load dataset and split users
     if args.dataset == 'mnist':

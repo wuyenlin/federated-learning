@@ -17,6 +17,8 @@ from models.Nets import MLP, CNNMnist, CNNCifar
 from models.Fed import FedAvg
 from models.test import test_img
 
+
+############# weighted ###############
 def FedAvg(w, clients):
     w_avg = copy.deepcopy(w[0])
     for k in w_avg.keys():
@@ -25,6 +27,7 @@ def FedAvg(w, clients):
             w_avg[k] += tens
         w_avg[k] = torch.div(w_avg[k], sum(clients))
     return w_avg
+############# weighted ###############
 
 if __name__ == '__main__':
     # parse args
@@ -116,7 +119,7 @@ if __name__ == '__main__':
 
         # print loss
         loss_avg = sum(loss_locals) / len(loss_locals)
-        
+        # print('Round {:3d}, Average loss {:.3f}'.format(iter, loss_avg))
         loss_train.append(loss_avg)
         
         # Evaluate score

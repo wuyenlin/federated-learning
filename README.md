@@ -70,3 +70,5 @@ Attentive Federated Learning [[Paper](https://arxiv.org/abs/1812.07108)] [[Code]
 ## Requirements
 python 3.6  
 pytorch>=0.4
+sklearn
+matplotlib

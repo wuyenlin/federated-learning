@@ -22,16 +22,17 @@ if __name__ == '__main__':
     args = args_parser()
     args.device = torch.device('cuda:{}'.format(args.gpu) if torch.cuda.is_available() and args.gpu != -1 else 'cpu')
     args.gpu = 0
-    args.iid = True
+
     args.dataset = 'mnist'
     args.num_channels = 1
     args.model = 'cnn'
     
+    args.iid = True
     args.epochs = 100
-    args.local_ep = 20
-    args.local_bs = 10
+    args.local_ep = 10
+    args.local_bs = 1
     
-    results_file = open("results_file_var_0dot3.txt","a")
+    results_file = open("results.txt","a")
     
     # load dataset and split users
     if args.dataset == 'mnist':
@@ -93,14 +94,14 @@ if __name__ == '__main__':
             local = LocalUpdate(args=args, dataset=dataset_train, idxs=dict_users[idx])
             w, loss = local.train(net=copy.deepcopy(net_glob).to(args.device))
             
-            ################## Adding some noise            
+            ################## Adding some noise ##################
             sigma_squared=0.3
             for layer in w:
                 x = np.random.normal(0,sigma_squared,w[layer].size())
                 x = np.reshape(x,w[layer].size())
                 x = torch.from_numpy(x)
                 w[layer] = w[layer]+x.cuda()
-            ##################
+            ################## Adding some noise ##################
             
             w_locals.append(copy.deepcopy(w))
             loss_locals.append(copy.deepcopy(loss))
@@ -112,7 +113,7 @@ if __name__ == '__main__':
 
         # print loss
         loss_avg = sum(loss_locals) / len(loss_locals)
-        print('Round {:3d}, Average loss {:.3f}'.format(iter, loss_avg))
+        # print('Round {:3d}, Average loss {:.3f}'.format(iter, loss_avg))
         loss_train.append(loss_avg)
         
         # Evaluate score
