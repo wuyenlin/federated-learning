@@ -38,15 +38,35 @@ In order to answer these questions, we adjusted the algorithm called *FederatedA
 Full blog post on this reproducibility project is on [Medium](https://medium.com/federated-learning/reproducing-communication-efficient-learning-of-deep-networks-from-decentralized-data-6393ca963f7b). We start by replicating the results of the paper given the existing code from  [shaoxiongji](https://github.com/shaoxiongji/federated-learning). These results are presented in *Replication*. Next, we will present and discuss the results of the 3 questions presented above in Section *Uneven Distribution*, *Weighted Uneven Distribution* and *Noise robustness*. 
 
 
-### Update May, 2020
+### Update July, 2020
 
-The same reproduction is run on Intel i7-8565U, RAM 16GB, and Nvidia RTX 2060 (with 6GB GDDR6) in May 2020 and yielded the following results. For the paper reproduction, some cases reached an accuracy of 0.99 in the IID case, whereas none reached such accuracy in the non-IID case.
+The same reproduction is run on Intel i7-8565U, RAM 16GB, and Nvidia RTX 2060 (with 6GB GDDR6) in July 2020 and yielded the following results. For the paper reproduction, some cases reached an accuracy of 0.99 in the IID case, whereas none reached such accuracy in the non-IID case.
 When B=10, it takes longer to reproduce the results but outputs better accuracy than B= &infin;.
 
-![](https://i.imgur.com/QlyAnPL.png)
 
-![](https://i.imgur.com/6S1cktC.png)
+<p align='center'>
+    <img src="reproduced results/iid_paper/iid.png", width="360">
+    <img src="reproduced results/non_iid_paper/non_iid.png", width="380">
+</p>
 
+<p align='center'>
+    <img src="reproduced results/iid_paper/real_iid.png", width="360">
+    <img src="reproduced results/non_iid_paper/real_non_iid.png", width="380">
+</p>
+<p align='center'>
+    <img src="reproduced results/uneven_dd_iid/uneven.png", width="360">
+</p>
+| E | B | IID | non-IID | ud_IID | 
+|-----|-----|-----|-----|-----|
+| 1 | 10 | 897 | - |984|
+| 5 | 10 | 157 |999|965|
+| 20| 10 | 237 | - | - |
+| 1 | 50 | -   | - | - |
+| 5 | 50 | 549 | - | - |
+| 20| 50 | 200 | - |498|
+| 1 | &infin; | - | - | - |
+| 5 | &infin; | - | - | - |
+| 20| &infin; | - | - | - |
 
 ## References
 ```

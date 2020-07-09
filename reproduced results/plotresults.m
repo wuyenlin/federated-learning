@@ -227,9 +227,9 @@ for b = b_idx
         
         % find first number >= 0.99 accuracy
         if isempty(find(data>=0.99, 1))
-            tab_ud(i) = NaN;
+            tab_sh(i) = NaN;
         else
-            tab_ud(i) = find(data>=0.99, 1);
+            tab_sh(i) = find(data>=0.99, 1);
         end
         i = i + 1;
         
@@ -267,7 +267,7 @@ e_idx = [202, 203];
 
 figure(51);
 
-tab_sh = NaN(1,9);
+tab_mm = NaN(1,9);
 t = 1:1000;
 i = 1;
 
@@ -292,9 +292,9 @@ for b = b_idx
         
         % find first number >= 0.99 accuracy
         if isempty(find(data>=0.99, 1))
-            tab_ud(i) = NaN;
+            tab_mm(i) = NaN;
         else
-            tab_ud(i) = find(data>=0.99, 1);
+            tab_mm(i) = find(data>=0.99, 1);
         end
         i = i + 1;
         
@@ -311,7 +311,7 @@ for b = b_idx
 end    
 plot([-100,1000], [0.99,0.99], 'Color', [.7 .7 .7]);
 
-tab_sh = reshape(tab_sh, 3, 3)
+tab_mm = reshape(tab_mm, 3, 3)
 
 xlabel('Communication Rounds');
 ylabel('Test Accuracy');
