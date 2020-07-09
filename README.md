@@ -45,10 +45,10 @@ When B=10, it takes longer to reproduce the results but outputs better accuracy 
 
 <div class="row">
   <div class="column">
-    <img src="reproduced results/iid_paper/iid.png", width="360">
+    <img src="reproduced results/iid_paper/iid.png", style="width:100%">
   </div>
   <div class="column">
-    <img src="reproduced results/non_iid_paper/non_iid.png", width="380">
+    <img src="reproduced results/non_iid_paper/non_iid.png", style="width:100%">
   </div>
 </div>
 
