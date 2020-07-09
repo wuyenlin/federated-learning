@@ -45,10 +45,10 @@ When B=10, it takes longer to reproduce the results but outputs better accuracy 
 
 <div class="row">
   <div class="column">
-    <img src="reproduced results/iid_paper/iid.png", style="width:100%">
+    <img src="reproduced results/iid_paper/iid.png", style="width:50%">
   </div>
   <div class="column">
-    <img src="reproduced results/non_iid_paper/non_iid.png", style="width:100%">
+    <img src="reproduced results/non_iid_paper/non_iid.png", style="width:50%">
   </div>
 </div>
 
@@ -56,14 +56,22 @@ When B=10, it takes longer to reproduce the results but outputs better accuracy 
     <img src="reproduced results/iid_paper/iid.png", width="360">
     <img src="reproduced results/non_iid_paper/non_iid.png", width="380">
 </p> -->
+<div class="row">
+  <div class="column">
+    <img src="reproduced results/iid_paper/real_iid.png", style="width:50%">
+  </div>
+  <div class="column">
+    <img src="reproduced results/non_iid_paper/real_non_iid.png", style="width:50%">
+  </div>
+</div>
 
-<p align='center'>
+<!-- <p align='center'>
     <img src="reproduced results/iid_paper/real_iid.png", width="360">
     <img src="reproduced results/non_iid_paper/real_non_iid.png", width="380">
-</p>
+</p> -->
 
 <p align='center'>
-    <img src="reproduced results/uneven_dd_iid/uneven.png", width="360">
+    <img src="reproduced results/uneven_dd_iid/uneven.png", style="width:50%">
 </p>
 
 <center>
