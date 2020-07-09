@@ -43,19 +43,31 @@ Full blog post on this reproducibility project is on [Medium](https://medium.com
 The same reproduction is run on Intel i7-8565U, RAM 16GB, and Nvidia RTX 2060 (with 6GB GDDR6) in July 2020 and yielded the following results. For the paper reproduction, some cases reached an accuracy of 0.99 in the IID case, whereas none reached such accuracy in the non-IID case.
 When B=10, it takes longer to reproduce the results but outputs better accuracy than B= &infin;.
 
+<div class="row">
+  <div class="column">
+    <img src="reproduced results/iid_paper/iid.png", width="360">
+  </div>
+  <div class="column">
+    <img src="reproduced results/non_iid_paper/non_iid.png", width="380">
+  </div>
+</div>
 
-<p align='center'>
+<!-- <p align='center'>
     <img src="reproduced results/iid_paper/iid.png", width="360">
     <img src="reproduced results/non_iid_paper/non_iid.png", width="380">
-</p>
+</p> -->
 
 <p align='center'>
     <img src="reproduced results/iid_paper/real_iid.png", width="360">
     <img src="reproduced results/non_iid_paper/real_non_iid.png", width="380">
 </p>
+
 <p align='center'>
     <img src="reproduced results/uneven_dd_iid/uneven.png", width="360">
 </p>
+
+<center>
+
 | E | B | IID | non-IID | ud_IID | 
 |-----|-----|-----|-----|-----|
 | 1 | 10 | 897 | - |984|
@@ -67,6 +79,8 @@ When B=10, it takes longer to reproduce the results but outputs better accuracy 
 | 1 | &infin; | - | - | - |
 | 5 | &infin; | - | - | - |
 | 20| &infin; | - | - | - |
+
+</center>
 
 ## References
 ```
